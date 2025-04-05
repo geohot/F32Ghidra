@@ -5,7 +5,7 @@ define space jumptable type=ram_space       size=8;
 
 # variable memory
 define space ram       type=ram_space       size=8;
-define space reg       type=ram_space       size=8;
+define space reg       type=ram_space       size=4 wordsize=4;
 define space mem       type=ram_space       size=8;
 define space unk       type=ram_space       size=8;
 

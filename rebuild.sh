@@ -1,7 +1,8 @@
-#!/bin/sh
+#!/bin/sh -e
 set -xeo pipefail
 rm -rf dist/*
 export GHIDRA_INSTALL_DIR=$HOME/src/ghidra_11.2_PUBLIC/
+ant -f data/buildLanguage.xml
 gradle buildExtension
 FILE="$PWD/dist/*"
 mkdir -p ~/Library/ghidra/ghidra_11.2_PUBLIC/Extensions
