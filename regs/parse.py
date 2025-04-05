@@ -14,12 +14,15 @@ for s in sections[1:]:
     regs[name] = addr
     secs[name] = (section_name, section_address)
 
+# import with ImportSymbolsScript.py
 for k in regs:
   if not k.endswith("BASE_IDX"): continue
   base_idx = regs[k]
   section_name, section_address = secs[k]
   real_name = k.split("_BASE_IDX")[0]
   reg = regs[real_name]
+  if base_idx == 0:
+    print(f"{real_name:s} reg:0x{0x2000+reg:x}")  # {section_name} @ 0x{section_address//4:X}")
   if base_idx == 1:
     print(f"{real_name:s} reg:0x{0xa000+reg:x}") # 0x{0xa000+reg:x}  # {section_name} @ 0x{section_address//4:X}")
 
