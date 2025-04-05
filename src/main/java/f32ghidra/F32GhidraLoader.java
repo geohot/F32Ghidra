@@ -4,9 +4,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -135,7 +135,7 @@ public class F32GhidraLoader extends AbstractProgramWrapperLoader {
 	}
 
 	public Dictionary<Integer, String> pktdefs() {
-		
+
     Dictionary<Integer, String> dict = new Hashtable<>();
     // java being cringe. This should be loaded from file
     dict.put(0x10, "NOP");
@@ -190,7 +190,7 @@ public class F32GhidraLoader extends AbstractProgramWrapperLoader {
     dict.put(0x4A, "PREAMBLE_CNTL");
     dict.put(0x50, "DMA_DATA");
     dict.put(0x57, "ONE_REG_WRITE");
-    dict.put(0x58, "AQUIRE_MEM");
+    dict.put(0x58, "ACQUIRE_MEM");
     dict.put(0x59, "REWIND");
     dict.put(0x5E, "LOAD_UCONFIG_REG");
     dict.put(0x5F, "LOAD_SH_REG");

@@ -12,5 +12,5 @@
             id="F32:LE:64:default">
     <description>AMD F32</description>
     <compiler name="default" spec="F32.cspec" id="default"/>
-  </language> 
+  </language>
 </language_definitions>

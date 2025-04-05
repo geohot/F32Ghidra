@@ -4,7 +4,7 @@ rm -rf dist/*
 export GHIDRA_INSTALL_DIR=$HOME/src/ghidra_11.2_PUBLIC/
 gradle buildExtension
 FILE="$PWD/dist/*"
-mkdir ~/Library/ghidra/ghidra_11.2_PUBLIC/Extensions
+mkdir -p ~/Library/ghidra/ghidra_11.2_PUBLIC/Extensions
 cd ~/Library/ghidra/ghidra_11.2_PUBLIC/Extensions
 rm -rf F32Ghidra
 unzip $FILE
