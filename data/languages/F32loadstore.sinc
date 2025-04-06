@@ -10,7 +10,7 @@ with : a=0x30 & rs=0x0  {
 with : a=0x31 {
     :ldw Rd_REG64, "ram["^Rs_REG64, Imm^"]" is b=0x0 & Rd_REG64 & Rs_REG64 & Imm {
         tmp:8 = Rs_REG64 + Imm;
-        Rd_REG64 = *[ram]tmp;
+        Rd_REG64 = *[ram](tmp:4);
     }
 
     :ldw Rd_REG64, "reg["^Rs_REG64, Imm^"]" is b=0x1 & Rd_REG64 & Rs_REG64 & Imm {
@@ -33,7 +33,7 @@ with : a=0x31 {
 with : a=0x32 {
     :ldd Rd_REG64, "ram["^Rs_REG64, Imm^"]" is b=0x0 & Rd_REG64 & Rs_REG64 & Imm {
         tmp:8 = Rs_REG64 + Imm;
-        Rd_REG64 = *[ram]tmp;
+        Rd_REG64 = *[ram](tmp:4);
     }
     :ldd Rd_REG64, "reg["^Rs_REG64, Imm^"]" is b=0x1 & Rd_REG64 & Rs_REG64 & Imm {
         tmp:8 = Rs_REG64 + Imm;
@@ -52,7 +52,7 @@ with : a=0x32 {
 with : a=0x33 {
     :stw Rs_REG64, "ram["^Rd_REG64, Imm^"]" is b=0x0 & Rs_REG64 & Rd_REG64 & Imm {
         tmp:8 = Rd_REG64 + Imm;
-        *[ram]tmp = Rs_REG64:4;
+        *[ram](tmp:4) = Rs_REG64:4;
     }
     :stw Rs_REG64, "reg["^Rd_REG64, Imm^"]" is b=0x1 & Rs_REG64 & Rd_REG64 & Imm {
         tmp:8 = Rd_REG64 + Imm;
@@ -71,7 +71,7 @@ with : a=0x33 {
 with : a=0x34 {
     :std Rs_REG64, "ram["^Rd_REG64, Imm^"]" is b=0x0 & Rs_REG64 & Rd_REG64 & Imm {
         tmp:8 = Rd_REG64 + Imm;
-        *[ram]tmp = Rs_REG64;
+        *[ram](tmp:4) = Rs_REG64;
     }
     :std Rs_REG64, "reg["^Rd_REG64, Imm^"]" is b=0x1 & Rs_REG64 & Rd_REG64 & Imm {
         tmp:8 = Rd_REG64 + Imm;
@@ -98,7 +98,7 @@ with : a=0x35 {
         <loop>
             if (i >= ctr) goto <end>;
             tmp:8 = Rd_REG64 + Imm + i;
-            *[ram]tmp = Rs_REG64:4;
+            *[ram](tmp:4) = Rs_REG64:4;
             i = i + 1;
             goto <loop>;
         <end>
@@ -109,7 +109,7 @@ with : a=0x35 {
             if (i >= ctr) goto <end>;
             tmp:8 = Rd_REG64 + Imm + i;
             tmp_val:4 = cbuf_pop_dword();
-            *[ram]tmp = tmp_val;
+            *[ram](tmp:4) = tmp_val;
             i = i + 1;
             goto <loop>;
         <end>
@@ -182,7 +182,7 @@ with : a=0x35 {
 with : a=0x36 {
     :stw ImmRs, "ram["^Rd_REG64, Imm^"]" is b=0x0 & ImmRs & Rd_REG64 & Imm {
         tmp:8 = Rd_REG64 + Imm;
-        *[ram]tmp = ImmRs:4;
+        *[ram](tmp:4) = ImmRs:4;
     }
     :stw ImmRs, "reg["^Rd_REG64, Imm^"]" is b=0x1 & ImmRs & Rd_REG64 & Imm {
         tmp:8 = Rd_REG64 + Imm;

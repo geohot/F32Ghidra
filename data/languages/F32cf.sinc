@@ -18,12 +18,12 @@ define pcodeop btab;
 :bl Addr is a=0x23 & b=0x0 & rs=0x0 & rd=0x0 & Addr {
     sp = sp - 8;
     tmp:8 = inst_next;
-    *[ram]sp = tmp;
+    *[ram](sp:4) = tmp;
     call Addr;
 }
 
 :ret is a=0x24 & b=0x0 & rs=0x0 & rd=0x0 & imm16=0x0 {
-    tmp:8 = *[ram]sp;
+    tmp:8 = *[ram](sp:4);
     sp = sp - 8;
     return [tmp];
 }

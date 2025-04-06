@@ -10,7 +10,7 @@
 # a=0x37 | b=0x0 => b=0x3
 
 :pop Rd_REG64 is a=0x37 & new_b=0x0 & rs=0x0 & Rd_REG64 {
-    temp:8 = *[ram]sp;
+    temp:8 = *[ram](sp:4);
     sp = sp + 8;
     Rd_REG64 = temp;
 }
@@ -18,7 +18,7 @@
 :push Rs_REG64 is a=0x37 & new_b=0x1 & rd=0x0 & Rs_REG64 {
     temp:8 = Rs_REG64;
     sp = sp - 8;
-    *[ram]sp = temp;
+    *[ram](sp:4) = temp;
 }
 
 :mov Rd_REG64, "ctr" is a=0x37 & new_b=0x2 & rs=0x0 & Rd_REG64 {
