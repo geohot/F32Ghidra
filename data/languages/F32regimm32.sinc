@@ -33,3 +33,15 @@
 :seteq Rd_REG64, Rs_REG64, Imm is a=0xc & b=0 & Rd_REG64 & Rs_REG64 & Imm {
     Rd_REG64 = zext(Rs_REG64:4 == Imm:4);
 }
+
+:setne Rd_REG64, Rs_REG64, Imm is a=0xd & b=0 & Rd_REG64 & Rs_REG64 & Imm {
+    Rd_REG64 = zext(Rs_REG64:4 != Imm:4);
+}
+
+:setgt Rd_REG64, Rs_REG64, Imm is a=0xe & b=0 & Rd_REG64 & Rs_REG64 & Imm {
+    Rd_REG64 = zext(Rs_REG64:4 > Imm:4);
+}
+
+:setge Rd_REG64, Rs_REG64, Imm is a=0xf & b=0 & Rd_REG64 & Rs_REG64 & Imm {
+    Rd_REG64 = zext(Rs_REG64:4 >= Imm:4);
+}
